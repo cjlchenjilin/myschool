@@ -2,7 +2,9 @@ package edu.cjl.myschool.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBHelper {
 	private static final String URL = "jdbc:mariadb://localhost:3306/myschool";
@@ -22,4 +24,22 @@ public class DBHelper {
 		Connection con = DriverManager.getConnection(URL, USERNAME, PWD);
 		return con;
 	}
+
+	public static void closeResources(Connection con, Statement st, ResultSet rs) {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (st != null) {
+				st.close();
+			}
+			if (con != null) {
+				con.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }
