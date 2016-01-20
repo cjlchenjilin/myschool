@@ -1,5 +1,6 @@
 package edu.cjl.myschool.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -57,6 +58,28 @@ public class GradeDaoImpl implements GradeDao {
 			DBHelper.closeResources(con, ps, rs);
 		}
 		return grades;
+	}
+
+	@Override
+	public boolean add(Grade grade) {
+		Connection con=null;
+		PreparedStatement ps=null;
+		boolean flag = true;
+		try {
+			con = DBHelper.getConnection();
+			String sql = "insert into grade(name) values(?)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, grade.getName());
+			if(ps.executeUpdate()!=1)
+				flag = false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			flag=false;
+		}finally{
+			DBHelper.closeResources(con, ps, null);
+		}
+		return flag;
 	}
 
 }

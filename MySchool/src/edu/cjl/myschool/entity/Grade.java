@@ -3,6 +3,11 @@ package edu.cjl.myschool.entity;
 public class Grade {
 	private Integer id;
 	private String name;
+	
+	public Grade(){}
+	public Grade(String name){
+		this.name = name;
+	}
 	public Integer getId() {
 		return id;
 	}
