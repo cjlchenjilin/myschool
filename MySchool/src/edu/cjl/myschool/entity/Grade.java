@@ -8,6 +8,10 @@ public class Grade {
 	public Grade(String name){
 		this.name = name;
 	}
+	public Grade(int id,String name){
+		this.name = name;
+		this.id = id;
+	}
 	public Integer getId() {
 		return id;
 	}

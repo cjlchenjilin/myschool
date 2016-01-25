@@ -45,7 +45,7 @@
 				<tr <c:if test="${status.index%2==0}">style="background-color:#ccc;"</c:if>>
 					<td>${grade.id }</td>
 					<td>${grade.name }</td>
-					<td><a href="#">修改</a>&nbsp;<a href="#">删除</a></td>
+					<td><a href="update.jsp?id=${grade.id}">修改</a>&nbsp;<a href="#">删除</a></td>
 				</tr>
 			</c:forEach>
 		</table>

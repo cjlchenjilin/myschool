@@ -82,4 +82,52 @@ public class GradeDaoImpl implements GradeDao {
 		return flag;
 	}
 
+	@Override
+	public boolean update(Grade grade) {
+		Connection con=null;
+		PreparedStatement ps=null;
+		boolean flag = true;
+		try {
+			con = DBHelper.getConnection();
+			String sql = "update grade set name = ? where id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, grade.getName());
+			ps.setInt(2, grade.getId());
+			if(ps.executeUpdate()!=1)
+				flag = false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			flag=false;
+		}finally{
+			DBHelper.closeResources(con, ps, null);
+		}
+		return flag;
+	}
+
+	@Override
+	public Grade getOneGrade(int id) {
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs = null;
+		Grade grade = null;
+		try {
+			con = DBHelper.getConnection();
+			String sql = "select * from grade where id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()){
+				grade = new Grade();
+				grade.setId(rs.getInt("id"));
+				grade.setName(rs.getString("name"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			DBHelper.closeResources(con, ps, rs);
+		}
+		return grade;
+	}
+
 }

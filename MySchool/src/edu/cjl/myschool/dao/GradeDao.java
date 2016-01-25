@@ -8,4 +8,6 @@ public interface GradeDao {
 	public Integer getAllCount();
 	public List<Grade> getGradesWithPage(int index,int size);
 	public boolean add(Grade grade);
+	public boolean update(Grade grade);
+	public Grade getOneGrade(int id);
 }

@@ -18,4 +18,14 @@ public class GradeDaoImplTest extends TestCase {
 		GradeDao gdi = new GradeDaoImpl();
 		assertEquals(true, gdi.add(new Grade("y4")));
 	}
+	
+	public void testUpdate(){
+		GradeDao gdi = new GradeDaoImpl();
+		assertEquals(true, gdi.update(new Grade(22,"y10")));
+	}
+	
+	public void testGetOneGrade(){
+		GradeDao gdi = new GradeDaoImpl();
+		assertEquals(true, gdi.getOneGrade(1)!=null);
+	}
 }
