@@ -130,4 +130,25 @@ public class GradeDaoImpl implements GradeDao {
 		return grade;
 	}
 
+	@Override
+	public boolean deleteGrade(int id) {
+		Connection con=null;
+		PreparedStatement ps=null;
+		boolean flag = true;
+		try {
+			con = DBHelper.getConnection();
+			String sql = "delete from grade where id = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			if(ps.executeUpdate()!=1)
+				flag = false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			flag=false;
+		}finally{
+			DBHelper.closeResources(con, ps, null);
+		}
+		return flag;
+	}
+
 }

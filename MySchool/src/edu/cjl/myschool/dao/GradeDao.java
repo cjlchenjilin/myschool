@@ -10,4 +10,5 @@ public interface GradeDao {
 	public boolean add(Grade grade);
 	public boolean update(Grade grade);
 	public Grade getOneGrade(int id);
+	public boolean deleteGrade(int id);
 }

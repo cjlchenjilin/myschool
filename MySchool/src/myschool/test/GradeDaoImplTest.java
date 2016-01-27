@@ -28,4 +28,9 @@ public class GradeDaoImplTest extends TestCase {
 		GradeDao gdi = new GradeDaoImpl();
 		assertEquals(true, gdi.getOneGrade(1)!=null);
 	}
+	
+	public void testDeleteGrade(){
+		GradeDao gdi = new GradeDaoImpl();
+		assertEquals(true, gdi.deleteGrade(7));
+	}
 }

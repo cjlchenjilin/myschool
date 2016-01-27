@@ -12,6 +12,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>年级</title>
+<script>
+	function deleteGrade(id){
+		var ret = confirm('你确定要删除这条记录吗？');
+		if(ret == true){
+			window.location = "deleteGrade.jsp?id="+id;
+		}
+	}
+</script>
 </head>
 <body>
 	<%
@@ -45,7 +53,8 @@
 				<tr <c:if test="${status.index%2==0}">style="background-color:#ccc;"</c:if>>
 					<td>${grade.id }</td>
 					<td>${grade.name }</td>
-					<td><a href="update.jsp?id=${grade.id}">修改</a>&nbsp;<a href="#">删除</a></td>
+					<td><a href="update.jsp?id=${grade.id}">修改</a>&nbsp;
+					<a href="javascript:deleteGrade(${grade.id });">删除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
