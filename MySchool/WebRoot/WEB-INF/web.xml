@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<display-name>MySchool</display-name>
+	<servlet>
+		<display-name>GradeListServlet</display-name>
+		<servlet-name>GradeListServlet</servlet-name>
+		<servlet-class>edu.cjl.myschool.servlet.GradeListServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ChangeGradeServlet</display-name>
+		<servlet-name>ChangeGradeServlet</servlet-name>
+		<servlet-class>edu.cjl.myschool.servlet.ChangeGradeServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DeleteGradeServlet</display-name>
+		<servlet-name>DeleteGradeServlet</servlet-name>
+		<servlet-class>edu.cjl.myschool.servlet.DeleteGradeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GradeListServlet</servlet-name>
+		<url-pattern>/GradeListServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChangeGradeServlet</servlet-name>
+		<url-pattern>/ChangeGradeServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteGradeServlet</servlet-name>
+		<url-pattern>/DeleteGradeServlet</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

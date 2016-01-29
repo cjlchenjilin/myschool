@@ -20,11 +20,14 @@
 </head>
 <body>
 	<h1>新增年级</h1>
-	<form action="addGradeImpl.jsp" method="post" onsubmit="return check();">
+	<form action="ChangeGradeServlet" method="post" >
 		<table>
 			<tr>
 				<td>年级名称：</td>
-				<td><input type="text" id="name" name="name" value="${name}" /></td>
+				<td><input type="text" id="name" name="name" value="${name}" />
+					<span style="color:red;" id="tip">${tip}</span>
+				</td>
+				
 			</tr>
 			<tr>
 				<td colspan="2"><input type="reset" value="重置" />&nbsp; <input
